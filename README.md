@@ -1,12 +1,6 @@
-# flask-note-4-SQL
+#flask-note-4-SQL
 
 
-
-
-
-
-
-找一下，在terminal里面找用户数据：
 
 Last login: Fri Aug 26 18:01:32 on ttys000
 vinafu@192 ~ % cd Desktop
@@ -139,5 +133,39 @@ User('Vina','v@demo.com','default.jpg')
 >>> user
 User('Vina','v@demo.com','default.jpg')
 >>> user.posts
+[]
+>>> user.id
+1
+>>> post_1 = Post(title='Blog 1', content='First Post Content!', user_id=user.id)
+>>> post_2 = Post(title='Blog 2', content='Second Post Content!', user_id=user.id)
+>>> db.session.add(post_1)
+>>> db.session.add(post_2)
+>>> db.session.commit()
+>>> user.posts
+[<Post 1>, <Post 2>]
+>>> for post in user.posts:
+... print(post.title)
+  File "<stdin>", line 2
+    print(post.title)
+    ^
+IndentationError: expected an indented block after 'for' statement on line 1
+>>> for post in user.posts:
+...     print(post.title)
+... 
+Blog 1
+Blog 2
+>>> post = Post.query.first()
+>>> 
+>>> post
+<Post 1>
+>>> post.user_id
+1
+>>> post.author
+User('Vina','v@demo.com','default.jpg')
+>>> db.drop_all()
+>>> db.create_all()
+>>> User.query.all()
+[]
+>>> Post.query.all()
 []
 >>> 
