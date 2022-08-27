@@ -22,7 +22,7 @@
                   unique=true 表示是独一无二的属性
                   nullable=false 表示不可以无效
                   注意：一般id = 是实数而且是primary key
-                  最后一行表示关系：下面有定义post
+                  最后一行表示关系：和下面表格post有关，所以这里首字母大写！
                   backref 表示建立一个新的column但是可以通过它来引用所有，可以从terminal里面看出来。
                   lazy 表示同意一次性从后面取出所有posts。
     
